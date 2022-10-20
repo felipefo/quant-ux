@@ -142,6 +142,18 @@ export default {
 						this._renderInputDropDown(p.label, widget, options, p.key, p.isProp);
 						break;
 
+					case 'String':
+						//var value = p.options
+						console.log(JSON.stringify(widget))
+						console.log(JSON.stringify(props))
+						console.log(p.key)
+						console.log(p.label)
+
+						this._renderInput(widget.props, widget.props[p.key], p.label);
+						//this._renderInput_(p.label, widget, value, p.key, p.isProp);
+						break;
+
+
 					case 'Color':
 						var icon = `<span class="mdi ${p.icon}"></span>`
 						if (p.isProp) {
@@ -1968,6 +1980,22 @@ export default {
 
 		},
 
+
+/*		_renderInput_(lbl, model, options, property, isProp, type = false){
+
+		const row = this.db.div("MatcToobarRow ").build(this.cntr);
+		const input = this.$new(InputVue);
+		if (type) {
+			input.type = "text"
+		}
+		input.reposition = true;
+		console.log(options)
+		input.setValue("")
+		input.setLabelPostfix("   (" + lbl + ")");
+		input.placeAt(row);
+		
+
+		},*/
 
 		_renderInputDropDown (lbl, model, options, property, isProp, type = false){
 

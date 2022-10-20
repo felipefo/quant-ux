@@ -4,7 +4,8 @@ import Vue from "vue"
 import ModelGeom from 'core/ModelGeom'
 import lang from 'dojo/_base/lang'
 import CoreUtil from 'core/CoreUtil'
-// import HelloWorld from 'examples/HelloWorld'
+import HelloWorld from 'examples/HelloWorld'
+import Iframe from 'examples/Iframe'
 
 /**
  * Add here imports
@@ -16,7 +17,8 @@ class SymbolService extends AbstractService{
         super()
         this.logger = new Logger('SymbolService')
         this.widgets = {
-          // 'HelloWorld': HelloWorld
+           'HelloWorld': HelloWorld,
+           'Iframe': Iframe
         }
 
     }

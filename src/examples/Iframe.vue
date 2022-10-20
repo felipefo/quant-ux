@@ -1,7 +1,8 @@
 
 <template>
   <div class="HelloWorldWidget ">
-    Hello <span ref="lblNode" :style="{'margin-left': getScaledValue(style.space) + 'px'}" class="MatcInlineEditable">{{value}}</span> 
+    <iframe widht="400px" height="300px"  :src="value" title=""></iframe>
+
   </div>
 </template>
 <style>
@@ -55,12 +56,12 @@ export default {
     getCreateTemplates () {
       return [
         {
-          "id" : "HelloWorld",
-          "type" : "HelloWorld", // must be the same as tghe name used in the SymbolService
+          "id" : "Iframe",
+          "type" : "Iframe", // must be the same as tghe name used in the SymbolService
           "_type" : "Widget",
           "category" : "WireFrame",
           "subcategory" : "AAAAAA",
-          "name" : "HelloWorld",
+          "name" : "Iframe",
             "x" : 0,
             "y" : 0,
             "w" : 100,
@@ -110,13 +111,11 @@ export default {
       return [
         
         {
-          label: "String",
-          type: "Number",
-          value: "add your link here",
-          key: "foo",
+          label: "URL Link",
+          type: "String",
+          key: "link",
           isProp:false,
         },
-        
       ]
     },
 
