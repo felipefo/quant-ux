@@ -143,7 +143,7 @@ export default {
 						break;
 
 					case 'String':
-						this._renderInput(widget.props, widget.props[p.key], p.label);
+						this._renderInput(widget.props, widget.props[p.key], p.key);
 						break;
 
 

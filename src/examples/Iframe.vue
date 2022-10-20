@@ -1,9 +1,6 @@
 
 <template>
-  <div class="HelloWorldWidget ">
-    <iframe widht="400px" height="300px"  :src="value" title=""></iframe>
-
-  </div>
+    <iframe width="100%" height="100%"  :src="url" title=""></iframe>
 </template>
 <style>
 .HelloWorldWidget{
@@ -28,9 +25,10 @@ export default {
   mixins: [UIWidget, DojoWidget],
   data: function () {
     return {
-      value: "",
+      value: this.value,
       style: {},
-      model: {}
+      model: {},
+      url: this.url,
     };
   },
   components: {},
@@ -42,10 +40,11 @@ export default {
   methods: {
 
     getName () {
-      return 'Hello World'
+      return 'Iframe'
     },
 
     postCreate () {
+
       this._borderNodes = [this.domNode];
       this._backgroundNodes = [this.domNode];
       this._shadowNodes = [this.domNode];
@@ -68,7 +67,8 @@ export default {
             "h" : 30,
             "z" : 0,
             "props" : {
-              "label" : "World"
+              "label" : "Iframe",
+              "link" : "url"
             },
             "has" : {
               "backgroundColor" : true,
@@ -109,10 +109,10 @@ export default {
 
     getDataProperties () {
       return [
-        
         {
           label: "URL Link",
           type: "String",
+          value: "add your link here",
           key: "link",
           isProp:false,
         },
@@ -131,13 +131,15 @@ export default {
 
     render (model, style, scaleX, scaleY) {
       this.model = model;
+      this.url = ""
       this.style = style;
       this._scaleX = scaleX;
       this._scaleY = scaleY;
 
       this.setStyle(style, model);
-      if (model.props && model.props.label) {
-        this.setValue(model.props.label);
+      if (model.props && model.props.undefined  ) {
+        this.url = model.props.undefined;
+        this.setValue(model.props.undefined);
       }
     },
 
@@ -152,7 +154,7 @@ export default {
     getState () {
       return {
         type: 'value',
-        value: this.value
+        value: this.value,
       };
     },
 
@@ -163,6 +165,7 @@ export default {
       if (this.hackValueLabel) {
         return;
       }
+
       if (state && state.type == 'value') {
         this.setValue(state.value);
       }
