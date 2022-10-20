@@ -143,14 +143,7 @@ export default {
 						break;
 
 					case 'String':
-						//var value = p.options
-						console.log(JSON.stringify(widget))
-						console.log(JSON.stringify(props))
-						console.log(p.key)
-						console.log(p.label)
-
 						this._renderInput(widget.props, widget.props[p.key], p.label);
-						//this._renderInput_(p.label, widget, value, p.key, p.isProp);
 						break;
 
 
